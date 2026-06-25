@@ -14,3 +14,15 @@ while user_selection != 5 :
     except ValueError :
         print("Invalid Input!\n")
         continue
+
+    if user_selection == 1 :
+        student_name = input("Enter Name :")
+        student_age = int(input("Enter Age :"))
+        student_grade = float(input("Enter Grade :"))
+        student = {
+            "Name" : student_name,
+            "Age" : student_age,
+            "Grade" : student_grade
+        }
+        students.append(student)
+        print("Student's Information Added!")
