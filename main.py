@@ -35,5 +35,18 @@ while user_selection != 5 :
             print("No student found!")
         else :
             print("\nstudents list :")
-            for index, info in enumerate(students) :
-                print(f"{index + 1}. {info['name']} | age: {info['age']} | grade: {info['grade']}")
+            for index, student in enumerate(students) :
+                print(f"{index + 1}. {student['name']} | age: {student['age']} | grade: {student['grade']}")
+                
+    # Search student
+    elif user_selection == 3 :
+        search_student = input("Enter student name :")
+        count = 0
+        for student in students:
+            if search_student == student["name"] :
+                print(f"{count + 1}. {student['name']} | age: {student['age']} | grade: {student['grade']}")
+                count += 1
+        if count == 0 :
+            print("Student not found!")
+        else :
+            print(f"<{count} student(s) found>")
