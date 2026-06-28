@@ -49,4 +49,30 @@ while user_selection != 5 :
         if count == 0 :
             print("Student not found!")
         else :
-            print(f"<{count} student(s) found>")
+            print(f"{count} student(s) found.4")
+
+    # Delete student :
+    elif user_selection == 4 :
+        if len(students) == 0 :
+            print("No student found!")
+        else :
+            print("\nstudents list :")
+            for index, student in enumerate(students) :
+                print(f"{index + 1}. {student['name']} | age: {student['age']} | grade: {student['grade']}")
+            try :
+                delete_student = int(input("Enter student number to delete :"))
+            except ValueError :
+                print("Invalid input!")
+                continue
+            if 0 <= delete_student <= len(students) :
+                answer = input("Are you sure ? (y/n) :").lower()
+                if answer == "y" :
+                    delete_student -= 1
+                    students.pop(delete_student)
+                    print("Student deleted.")
+                elif answer == "n" :
+                    print("DEletion canceled.")
+                else :
+                    print("Invalid choice!")
+            else :
+                print("Invalid student number!")
