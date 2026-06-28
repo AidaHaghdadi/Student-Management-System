@@ -19,8 +19,16 @@ while user_selection != 5 :
     # Add student
     if user_selection == 1 :
         student_name = input("Enter Name :")
-        student_age = int(input("Enter Age :"))
-        student_grade = float(input("Enter Grade :"))
+        try:
+            student_age = int(input("Enter Age :"))
+        except ValueError :
+            print("Invalid input!")
+            continue
+        try :
+            student_grade = float(input("Enter Grade :"))
+        except ValueError :
+            print("Invalid input!")
+            continue
         student = {
             "name" : student_name,
             "age" : student_age,
@@ -49,7 +57,7 @@ while user_selection != 5 :
         if count == 0 :
             print("Student not found!")
         else :
-            print(f"{count} student(s) found.4")
+            print(f"{count} student(s) found.")
 
     # Delete student :
     elif user_selection == 4 :
@@ -64,15 +72,22 @@ while user_selection != 5 :
             except ValueError :
                 print("Invalid input!")
                 continue
-            if 0 <= delete_student <= len(students) :
+            if 1 <= delete_student <= len(students) :
                 answer = input("Are you sure ? (y/n) :").lower()
                 if answer == "y" :
                     delete_student -= 1
                     students.pop(delete_student)
                     print("Student deleted.")
                 elif answer == "n" :
-                    print("DEletion canceled.")
+                    print("Deletion canceled.")
                 else :
                     print("Invalid choice!")
             else :
                 print("Invalid student number!")
+
+    # Exit 
+    elif user_selection == 5 :
+        print("End.")
+
+    else :
+        print("Invalid choice!")   
