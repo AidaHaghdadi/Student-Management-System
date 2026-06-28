@@ -39,4 +39,3 @@ cd Student-Management-System
 python main.py
 ```
 
-> If your main file has a different name, replace `main.py` with the correct filename.
